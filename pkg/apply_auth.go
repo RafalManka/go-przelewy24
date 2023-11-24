@@ -1,4 +1,4 @@
-package go_przelewy24
+package pkg
 
 import (
 	"encoding/base64"

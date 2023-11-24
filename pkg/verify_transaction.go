@@ -1,9 +1,10 @@
-package go_przelewy24
+package pkg
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/RafalManka/go-przelewy24/internal"
 	"net/http"
 )
 
@@ -34,7 +35,7 @@ func (gop Gop24Impl) VerifyTransaction(params Notification) error {
 		Amount:     params.Amount,
 		Currency:   params.Currency,
 		OrderId:    params.OrderID,
-		Sign:       HashData(signData),
+		Sign:       internal.HashData(signData),
 	}
 	requestBody, err := json.Marshal(payload)
 	if err != nil {

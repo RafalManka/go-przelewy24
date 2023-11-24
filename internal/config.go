@@ -1,4 +1,4 @@
-package go_przelewy24
+package internal
 
 type GOP24Config struct {
 	MerchantId uint

@@ -1,4 +1,4 @@
-package go_przelewy24
+package internal
 
 import (
 	"crypto/sha512"
