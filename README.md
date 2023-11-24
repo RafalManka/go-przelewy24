@@ -1,0 +1,1 @@
+Go-Przelewy24 is an open-source GoLang client for Przelewy24
