@@ -4,14 +4,14 @@ import (
 	"github.com/RafalManka/go-przelewy24/internal"
 )
 
-type GOP24 interface {
+type Client interface {
 	RegisterTransaction(request RegistrationParams) (RegistrationResponse, error)
 	VerifyTransaction(params Notification) error
 }
 
-func NewGOP24(merchantID uint, posID uint, crcKey string, reportKey string, sanbox bool) GOP24 {
+func NewClient(merchantID uint, posID uint, crcKey string, reportKey string, sandbox bool) Client {
 	var server internal.Server
-	if sanbox {
+	if sandbox {
 		server = internal.SandboxServer
 	} else {
 		server = internal.ProductionServer
@@ -19,8 +19,8 @@ func NewGOP24(merchantID uint, posID uint, crcKey string, reportKey string, sanb
 
 	return gop24Impl{
 		Config: internal.GOP24Config{
-			MerchantId: merchantID,
-			PosId:      posID,
+			MerchantID: merchantID,
+			PosID:      posID,
 			CrcKey:     crcKey,
 			Server:     server,
 			ReportKey:  reportKey,

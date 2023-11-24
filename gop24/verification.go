@@ -21,20 +21,20 @@ func (gop gop24Impl) VerifyTransaction(params Notification) error {
 	)
 
 	payload := struct {
-		MerchantId uint   `json:"merchantId"`
-		PosId      uint   `json:"posId"`
-		SessionId  string `json:"sessionId"`
+		MerchantID uint   `json:"merchantId"`
+		PosID      uint   `json:"posId"`
+		SessionID  string `json:"sessionId"`
 		Amount     uint   `json:"amount"`
 		Currency   string `json:"currency"`
-		OrderId    uint   `json:"orderId"`
+		OrderID    uint   `json:"orderId"`
 		Sign       string `json:"sign"`
 	}{
-		MerchantId: gop.Config.MerchantId,
-		PosId:      gop.Config.MerchantId,
-		SessionId:  params.SessionID,
+		MerchantID: gop.Config.MerchantID,
+		PosID:      gop.Config.PosID,
+		SessionID:  params.SessionID,
 		Amount:     params.Amount,
 		Currency:   params.Currency,
-		OrderId:    params.OrderID,
+		OrderID:    params.OrderID,
 		Sign:       internal.HashData(signData),
 	}
 	requestBody, err := json.Marshal(payload)
@@ -55,6 +55,7 @@ func (gop gop24Impl) VerifyTransaction(params Notification) error {
 		return err
 	}
 
+	// TODO: verify that the response payload is correct
 	fmt.Printf("Response Body: %s\n", string(responseBody))
 	return nil
 }

@@ -1,8 +1,8 @@
 package internal
 
 type GOP24Config struct {
-	MerchantId uint
-	PosId      uint
+	MerchantID uint
+	PosID      uint
 	CrcKey     string
 	Server     Server
 	ReportKey  string

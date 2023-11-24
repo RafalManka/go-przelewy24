@@ -1,5 +1,7 @@
 package gop24
 
+import "encoding/json"
+
 type Notification struct {
 	MerchantID   uint   `json:"merchantId"`
 	PosID        uint   `json:"posId"`
@@ -11,4 +13,10 @@ type Notification struct {
 	MethodID     uint   `json:"methodId"`
 	Statement    string `json:"statement"`
 	Sign         string `json:"sign"`
+}
+
+func UnmarshalNotification(body []byte) (Notification, error) {
+	var target Notification
+	err := json.Unmarshal(body, &target)
+	return target, err
 }

@@ -10,7 +10,7 @@ import (
 )
 
 type RegistrationParams struct {
-	SessionId     string
+	SessionID     string
 	Amount        uint
 	Currency      string
 	Description   string
@@ -35,8 +35,8 @@ func (gop gop24Impl) RegisterTransaction(request RegistrationParams) (Registrati
 
 	signData := fmt.Sprintf(
 		`{"sessionId":"%s","merchantId":%d,"amount":%d,"currency":"%s","crc":"%s"}`,
-		request.SessionId,
-		gop.Config.MerchantId,
+		request.SessionID,
+		gop.Config.MerchantID,
 		request.Amount,
 		request.Currency,
 		gop.Config.CrcKey,
@@ -58,9 +58,9 @@ func (gop gop24Impl) RegisterTransaction(request RegistrationParams) (Registrati
 		UrlReturn   string `json:"urlReturn"`
 		Sign        string `json:"sign"`
 	}{
-		MerchantID:  gop.Config.MerchantId,
-		PosID:       gop.Config.PosId,
-		SessionID:   request.SessionId,
+		MerchantID:  gop.Config.MerchantID,
+		PosID:       gop.Config.PosID,
+		SessionID:   request.SessionID,
 		Amount:      request.Amount,
 		Currency:    request.Currency,
 		Description: request.Description,
