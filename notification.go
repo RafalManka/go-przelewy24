@@ -1,4 +1,4 @@
-package pkg
+package go_przelewy24
 
 type Notification struct {
 	MerchantID   uint   `json:"merchantId"`

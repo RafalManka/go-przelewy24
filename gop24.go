@@ -1,6 +1,4 @@
-package pkg
-
-import "github.com/RafalManka/go-przelewy24/internal"
+package go_przelewy24
 
 type GOP24 interface {
 	RegisterTransaction(request RegistrationParams) (RegistrationResponse, error)
@@ -8,26 +6,26 @@ type GOP24 interface {
 }
 
 type Gop24Impl struct {
-	Config internal.GOP24Config
-	Client internal.ClientWrapper
+	Config GOP24Config
+	Client ClientWrapper
 }
 
 func NewGOP24(merchantID uint, posID uint, crcKey string, reportKey string, sanbox bool) GOP24 {
-	var server internal.Server
+	var server Server
 	if sanbox {
-		server = internal.SandboxServer
+		server = SandboxServer
 	} else {
-		server = internal.ProductionServer
+		server = ProductionServer
 	}
 
 	return Gop24Impl{
-		Config: internal.GOP24Config{
+		Config: GOP24Config{
 			MerchantId: merchantID,
 			PosId:      posID,
 			CrcKey:     crcKey,
 			Server:     server,
 			ReportKey:  reportKey,
 		},
-		Client: internal.NewClient(),
+		Client: NewClient(),
 	}
 }

@@ -1,11 +1,10 @@
-package pkg
+package go_przelewy24
 
 import (
 	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/RafalManka/go-przelewy24/internal"
 	"net/http"
 )
 
@@ -71,7 +70,7 @@ func (gop Gop24Impl) RegisterTransaction(request RegistrationParams) (Registrati
 		Language:    request.Language,
 		UrlReturn:   request.UrlReturn,
 		UrlStatus:   request.UrlStatus,
-		Sign:        internal.HashData(signData),
+		Sign:        HashData(signData),
 	}
 
 	payloadBytes, err := json.Marshal(data)

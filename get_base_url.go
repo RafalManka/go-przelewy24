@@ -1,4 +1,4 @@
-package internal
+package go_przelewy24
 
 func (c GOP24Config) GetBaseUrl() string {
 	if c.Server == ProductionServer {
