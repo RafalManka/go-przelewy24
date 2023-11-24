@@ -1,4 +1,4 @@
-package pkg
+package gop24
 
 import (
 	"encoding/json"

@@ -1,8 +1,8 @@
-package pkg
+package gop24
 
 import "github.com/RafalManka/go-przelewy24/internal"
 
-type Gop24Impl struct {
+type gop24Impl struct {
 	Config internal.GOP24Config
 	Client internal.ClientWrapper
 }

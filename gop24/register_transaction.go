@@ -1,4 +1,4 @@
-package pkg
+package gop24
 
 import (
 	"bytes"
@@ -29,7 +29,7 @@ type RegistrationResponse struct {
 	RedirectUrl string
 }
 
-func (gop Gop24Impl) RegisterTransaction(request RegistrationParams) (RegistrationResponse, error) {
+func (gop gop24Impl) RegisterTransaction(request RegistrationParams) (RegistrationResponse, error) {
 	// TODO: verify params
 	// TODO: Verify config
 

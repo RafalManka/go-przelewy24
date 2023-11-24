@@ -1,4 +1,4 @@
-package pkg
+package gop24
 
 type Notification struct {
 	MerchantID   uint   `json:"merchantId"`

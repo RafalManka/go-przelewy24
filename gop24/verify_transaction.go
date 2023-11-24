@@ -1,4 +1,4 @@
-package pkg
+package gop24
 
 import (
 	"bytes"
@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func (gop Gop24Impl) VerifyTransaction(params Notification) error {
+func (gop gop24Impl) VerifyTransaction(params Notification) error {
 	// TODO: verify params
 	// TODO: Verify config
 	signData := fmt.Sprintf(
